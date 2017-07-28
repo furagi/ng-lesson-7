@@ -1,0 +1,20 @@
+<md-card>
+  <div *ngIf="user">
+    <md-card-header>
+      <md-card-title>
+        {{ user.name }} {{ user.surname }}
+      </md-card-title>
+      <md-card-subtitle>
+        Email: {{ user.email }}
+      </md-card-subtitle>
+    </md-card-header>
+
+    <md-card-actions>
+      <a [routerLink]="'/users/' + user.id + '/edit'">
+        <button md-button> Edit </button>
+      </a>
+    </md-card-actions>
+    <router-outlet></router-outlet>
+  </div>
+  <md-spinner *ngIf="!user"></md-spinner>
+</md-card>

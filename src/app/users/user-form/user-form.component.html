@@ -1,0 +1,16 @@
+<form *ngIf="user" [formGroup]="userForm">
+  <md-input-container>
+    <input mdInput placeholder="Name" formControlName="name">
+    <md-error>This field is required</md-error>
+  </md-input-container>
+  <md-input-container>
+    <input type="text" mdInput placeholder="Surname" formControlName="surname">
+    <md-error>This field is required</md-error>
+  </md-input-container>
+  <md-input-container>
+    <input mdInput placeholder="Email" formControlName="email">
+    <md-error>{{ (email.getError('email') || email.getError('uniq') || {}).error }}</md-error>
+  </md-input-container>
+  <button md-button (click)="save()">Save</button>
+</form>
+
